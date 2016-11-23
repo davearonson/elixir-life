@@ -7,9 +7,7 @@ defmodule Life do
   @rows 20
   def rows, do: @rows
 
-  @neighbor_vectors [[-1, -1], [-1, 0], [-1, +1],
-                     [ 0, -1],          [ 0, +1],
-                     [+1, -1], [+1, 0], [+1, +1]]
+  @neighbor_vectors for x <- -1..1, y <- -1..1, x != 0 or y != 0, do: [x, y]
 
   @esc ""
   @ansi_home  "#{@esc}[H"
